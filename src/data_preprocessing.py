@@ -2,7 +2,6 @@ import pandas as pd
 from category_encoders import TargetEncoder
 
 def getData():
-    # pd.set_option("future.no_silent_downcasting", True)
     data = pd.read_csv('./data/fuel_train.csv')
     data.drop("Year",axis = 1,inplace = True) #dropping redundant columns
     data.drop("MODEL",axis = 1,inplace = True)

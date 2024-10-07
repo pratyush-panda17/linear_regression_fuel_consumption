@@ -9,13 +9,13 @@ def createMetricsFile(model,data,targets): #function to create metrics file
     metrics = open("./results/metrics.txt",'w')
     metrics.write("Regression Metrics: \n")
 
-    metrics.write(f"Mean Squared Error (MSE): {model.mse(data,targets)} \n")
+    metrics.write(f"Mean Squared Error (MSE): {round(model.mse(data,targets),2)} \n")
   
 
-    metrics.write(f"Root Mean Squared Error (RMSE): {model.root_mse(data,targets)} \n")
+    metrics.write(f"Root Mean Squared Error (RMSE): {round(model.root_mse(data,targets),2)} \n")
 
 
-    metrics.write("R-Squared R\u00b2:" + f" {model.r2(data,targets)}")
+    metrics.write("R-Squared (R\u00b2) Score: " + f" {round(model.r2(data,targets),2)}")
 
     metrics.close()
 
