@@ -26,8 +26,8 @@ class Regression:
             dw = ((1/X.shape[0]) * np.dot(X.T,errors)) + (self.regularizer*2*self.weights) #derivative of cost function w.r.t to weights
             db = (1/X.shape[0])* np.sum(errors) #derivative of cost function w.r.t bias
 
-            self.weights += self.lr*dw
-            self.bias += self.lr*db
+            self.weights = self.weights + self.lr*dw
+            self.bias = self.bias + self.lr*db
     
     def mse(self,X,target): #function to calculcate mse
         predictions = self.predict(X)

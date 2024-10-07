@@ -26,9 +26,13 @@ def createPredictionsCsv(model,X): #function to create csv file
         for prediction in predictions:
             writer.writerow([prediction])
 
+
 DATA =getData()
 training_data,training_targets,test_data,test_target = test_training_split(DATA,80)
-regressor = Regression(training_data.shape[1])
+ 
+with open('./models/regression_model_final.pkl','rb') as file:
+    regressor = pickle.load(file)
+
 regressor.gradient_descent(training_data,training_targets)
 
 createMetricsFile(regressor,test_data,test_target)
